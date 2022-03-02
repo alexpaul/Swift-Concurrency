@@ -6,7 +6,8 @@
 
 ```swift
 class Counter {
-    var value = 0
+    private var value = 0
+    
     func increment() -> Int {
         value += 1
         return value
@@ -44,7 +45,8 @@ import UIKit
 
 // The `actor` type ensures no other concurrent thread causes a race condition on the `actor` type
 actor CounterUsingActor {
-    var value = 0
+    private var value = 0
+    
     func increment() -> Int {
         value += 1
         return value
