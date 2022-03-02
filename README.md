@@ -40,7 +40,7 @@ DispatchQueue.concurrentPerform(iterations: 10) { _ in
 
 #### Using `actor` to avoid a race condition 
 
-> At the time of this writing if using Swift Playground ensure your `import UIKit` to use `Task`.
+> At the time of this writing if using _Swift Playground_ ensure you `import UIKit` to use the `Task` [type](https://developer.apple.com/documentation/swift/task).
 
 ```swift 
 import UIKit
