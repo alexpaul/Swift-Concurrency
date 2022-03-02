@@ -61,7 +61,7 @@ DispatchQueue.concurrentPerform(iterations: 10) { _ in
     // print(counterUsingActor.increment())
     // compiler-error above: Actor-isolated instance method 'increment()' can not be referenced from a non-isolated context
 
-    Task.init {
+    Task {
         print(await counterUsingActor.increment())
     }
 }
