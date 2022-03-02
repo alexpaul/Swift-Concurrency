@@ -5,6 +5,8 @@
 #### Snippet of a race condition 
 
 ```swift
+import Foundation 
+
 class Counter {
     private var value = 0
     
