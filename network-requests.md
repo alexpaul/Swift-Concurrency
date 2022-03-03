@@ -3,8 +3,6 @@
 ```swift
 import UIKit
 
-import UIKit
-
 // Model
 struct Root: Decodable {
     let results: [Podcast]
