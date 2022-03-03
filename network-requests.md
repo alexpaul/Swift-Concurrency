@@ -3,6 +3,8 @@
 ```swift
 import UIKit
 
+import UIKit
+
 // Model
 struct Root: Decodable {
     let results: [Podcast]
@@ -37,17 +39,24 @@ final class FeedViewController: UIViewController {
     private var podcastName = UILabel()
 
     override func viewDidLoad() {
-        fetchPodcasts()
+        // In other to call an `async` function from a non-async context the code will
+        // need to be wrapped in a `Task` block
+        Task {
+            await fetchPodcasts()
+        }
     }
 
-    private func fetchPodcasts() {
-        Task {
-            let podcasts = try? await APIClient.fetch()
-            guard let podcasts = podcasts else { return }
+    private func fetchPodcasts() async {
+        let podcasts = try? await APIClient.fetch()
+        guard let podcasts = podcasts else { return }
 
-            Thread.isMainThread // true
-            podcastName.text = podcasts[0].collectionName
-        }
+        Thread.isMainThread // true
+
+        let firstPodcast = podcasts[0].collectionName
+        podcastName.text = firstPodcast
+
+        print("The first result is \(firstPodcast)")
+        // The first result is Swift by Sundell
     }
 }
 
