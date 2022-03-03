@@ -2,7 +2,7 @@
 
 ## Function Definitions
 ```swift 
-// Traditional way 
+// Traditional way using Closures
 func fetch(completion: @escaping (Result<String, Error>) -> Void) {
     let possibleError: Error? = nil
 
