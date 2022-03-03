@@ -1,5 +1,6 @@
 # Swift Concurrency APIs
 
+## Function Definitions
 ```swift 
 func fetch(completion: @escaping (Result<String, Error>) -> Void) {
     let possibleError: Error? = nil
@@ -23,6 +24,22 @@ func fetch() async throws -> String {
     return "Data Received"
 }
 ```
+
+***
+
+## Call site
+
+```swift
+fetch { result in
+    print(result)
+}
+
+Task {
+    try await print(fetch())
+}
+```
+
+***
 
 ## Resources 
 
