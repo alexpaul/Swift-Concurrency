@@ -82,7 +82,6 @@ DispatchQueue.concurrentPerform(iterations: 10) { _ in
 
 ## Resources 
 
-* [Apple Docs: Concurrency](https://developer.apple.com/documentation/swift/swift_standard_library/concurrency)
 * [Video: Azam Sharp (Understanding Actors in Swift)](https://www.youtube.com/watch?v=I8y1fg1P-nI)
 * [Hacking with Swift: What is an actor and why does Swift have them?
 ](https://www.hackingwithswift.com/quick-start/concurrency/what-is-an-actor-and-why-does-swift-have-them)
