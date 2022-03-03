@@ -2,6 +2,7 @@
 
 ## Function Definitions
 ```swift 
+// Traditional way 
 func fetch(completion: @escaping (Result<String, Error>) -> Void) {
     let possibleError: Error? = nil
 
@@ -14,6 +15,7 @@ func fetch(completion: @escaping (Result<String, Error>) -> Void) {
 
 // vs
 
+// Modern "Structured" way using Swift's 5.5 Concurrency APIs
 func fetch() async throws -> String {
     let possibleError: Error? = nil
 
