@@ -1,14 +1,26 @@
 # Swift Concurrency APIs
 
 ```swift 
-func fetch(completion: @escaping (String) -> Void) {
-    completion("Data Received")
+func fetch(completion: @escaping (Result<String, Error>) -> Void) {
+    let possibleError: Error? = nil
+
+    if let error = possibleError {
+        completion(.failure(error))
+    } else {
+        completion(.success("Data Received"))
+    }
 }
 
 // vs
 
 func fetch() async throws -> String {
-    "Data Received"
+    let possibleError: Error? = nil
+
+    guard possibleError == nil else {
+        throw NSError(domain: "any error", code: 0)
+    }
+
+    return "Data Received"
 }
 ```
 
