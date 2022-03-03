@@ -1,8 +1,8 @@
 # Swift Concurrency APIs
 
 ```swift 
-func fetch(completion: @escaping () -> Void) {
-    completion()
+func fetch(completion: @escaping (String) -> Void) {
+    completion("Data Received")
 }
 
 // vs
