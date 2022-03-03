@@ -39,6 +39,7 @@ final class FeedViewController: UIViewController {
     override func viewDidLoad() {
         // In other to call an `async` function from a non-async context the code will
         // need to be wrapped in a `Task` block
+        // otherwise this is the compiler error you will receive: 'async' call in a function that does not support concurrency
         Task {
             await fetchPodcasts()
         }
