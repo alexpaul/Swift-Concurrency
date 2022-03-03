@@ -11,3 +11,7 @@ func fetch() async throws -> String {
     "Data Received"
 }
 ```
+
+## Resources 
+
+* [Apple Docs: Concurrency](https://developer.apple.com/documentation/swift/swift_standard_library/concurrency)
