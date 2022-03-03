@@ -1,3 +1,7 @@
+# Actors
+
+> Swift Language Guide: Like classes, actors are reference types, so the comparison of value types and reference types in Classes Are Reference Types applies to actors as well as classes. Unlike classes, actors allow only one task to access their mutable state at a time, which makes it safe for code in multiple tasks to interact with the same instance of an actor. For example, here’s an actor that records temperatures:
+
 ## 1. Actors
 
 #### Snippet of a race condition 
@@ -82,6 +86,7 @@ DispatchQueue.concurrentPerform(iterations: 10) { _ in
 
 ## Resources 
 
+* [Swift Language Guide: Concurrency](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html)
 * [Video: Azam Sharp (Understanding Actors in Swift)](https://www.youtube.com/watch?v=I8y1fg1P-nI)
 * [Hacking with Swift: What is an actor and why does Swift have them?
 ](https://www.hackingwithswift.com/quick-start/concurrency/what-is-an-actor-and-why-does-swift-have-them)
