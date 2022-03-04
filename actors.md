@@ -94,11 +94,9 @@ DispatchQueue.concurrentPerform(iterations: 10) { _ in
 import UIKit
 
 class Store {
-    // asuming both those functions are on background threads with
+    // the code here will be asuming both those functions are running on background threads with
     // potential race conditions occuring
 
-    // to the rescue is the `actor` type, it will ensure all work being done on its
-    // methods a on the same task
     func purchase() {
         print("making a purchase....")
     }
@@ -109,8 +107,8 @@ class Store {
 }
 
 actor StoreUsingActor {
-    // asuming both those functions are on background threads with
-    // potential race conditions occuring
+    // using an `actor` will now avoid a potential race condition as opposed to the `class` above
+    // as the `actor` reference will only allow one task to access its mutable state at a time
 
     // to the rescue is the `actor` type, it will ensure all work being done on its
     // methods a on the same task
