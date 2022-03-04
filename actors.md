@@ -2,7 +2,9 @@
 
 > [Swift Language Guide](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html): Like classes, actors are reference types, so the comparison of value types and reference types in Classes Are Reference Types applies to actors as well as classes. Unlike classes, actors allow only one task to access their mutable state at a time, which makes it safe for code in multiple tasks to interact with the same instance of an actor. For example, here’s an actor that records temperatures:
 
-## 1. Actors
+***
+
+## Example 1
 
 #### Snippet of a race condition 
 
@@ -82,6 +84,58 @@ DispatchQueue.concurrentPerform(iterations: 10) { _ in
  10
  */
 
+```
+
+***
+
+## Example 2 
+
+```swift
+import UIKit
+
+class Store {
+    // asuming both those functions are on background threads with
+    // potential race conditions occuring
+
+    // to the rescue is the `actor` type, it will ensure all work being done on its
+    // methods a on the same task
+    func purchase() {
+        print("making a purchase....")
+    }
+
+    func cancel() {
+        print("cancelling.....sorry to see you go...")
+    }
+}
+
+actor StoreUsingActor {
+    // asuming both those functions are on background threads with
+    // potential race conditions occuring
+
+    // to the rescue is the `actor` type, it will ensure all work being done on its
+    // methods a on the same task
+    func purchase() {
+        print("making a purchase....")
+    }
+
+    func cancel() {
+        print("cancelling.....sorry to see you go...")
+    }
+}
+
+let store = StoreUsingActor()
+
+/*
+store.purchase()
+store.cancel()
+
+Compiler Errro: Actor-isolated instance method 'purchase()' can not be referenced from a non-isolated context
+*/
+
+Task {
+    await store.purchase()
+    await store.cancel()
+}
 ```
 
 ## Resources 
