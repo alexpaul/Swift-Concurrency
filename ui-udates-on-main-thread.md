@@ -43,7 +43,7 @@ class ViewController: UIViewController {
 import UIKit
 
 enum Database {
-    static func save(completion: @escaping (String) -> Void) {
+    static private func save(completion: @escaping (String) -> Void) {
         DispatchQueue.global().async {
             completion("Saving.....")
         }
@@ -64,6 +64,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Task {...} needed here since we're running an asynchronous block of code
         Task {
             let message = await Database.save()
             self.messageLabel.text = message
