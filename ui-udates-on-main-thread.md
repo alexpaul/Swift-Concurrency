@@ -3,3 +3,72 @@
 ## We have all encounterd UI thread issues
 
 ![Screen Shot 2022-03-04 at 7 11 34 AM](https://user-images.githubusercontent.com/1819208/156764008-b4bc3df6-df01-450f-8886-b8bca8c62146.png)
+
+***
+
+## Solving using GCD
+
+```swift
+import UIKit
+
+enum Database {
+    static func save(completion: @escaping (String) -> Void) {
+        DispatchQueue.global().async {
+            completion("Saving.....")
+        }
+    }
+}
+
+class ViewController: UIViewController {
+    private var messageLabel = UILabel()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        Database.save { [weak self] message in
+            DispatchQueue.main.async {
+                self?.messageLabel.text = message
+                print(message)
+            }
+        }
+    }
+}
+```
+
+***
+
+## Solving with Swift 5.5 API's 
+
+```swift 
+import UIKit
+
+enum Database {
+    static func save(completion: @escaping (String) -> Void) {
+        DispatchQueue.global().async {
+            completion("Saving.....")
+        }
+    }
+
+    static func save() async -> String {
+        return await withCheckedContinuation({ continuation in
+            Database.save { message in
+                continuation.resume(returning: message)
+            }
+        })
+    }
+}
+
+class ViewController: UIViewController {
+    private var messageLabel = UILabel()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        Task {
+            let message = await Database.save()
+            self.messageLabel.text = message
+            print(message)
+        }
+    }
+}
+```
