@@ -6,6 +6,7 @@
 import UIKit
 
 struct User {
+    let name: String
     let twiiter: String
     let github: String
     let website: String
@@ -34,12 +35,12 @@ class ViewController: UIViewController {
             async let github = API.fetchGithub()
             async let website = API.fetchWebsite()
 
-            let user = await User(twiiter: twitter, github: github, website: website)
+            let user = await User(name: "Alex", twiiter: twitter, github: github, website: website)
 
-            print("User's socials are \(user)")
+            print("\(user.name) socials are \(user)")
 
             /*
-             User's socials are User(twiiter: "https://twitter.com/alexpaul", github: "https://github.com/alexpaul", website: "https://alexpaul.dev")
+             Alex socials are User(name: "Alex", twiiter: "https://twitter.com/alexpaul", github: "https://github.com/alexpaul", website: "https://alexpaul.dev")
             */
         }
     }
