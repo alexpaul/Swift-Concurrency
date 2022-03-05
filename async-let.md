@@ -46,5 +46,5 @@ class ViewController: UIViewController {
 
 ## Resources 
 
-* [Hacking with Swift: How to call an async function using async let
-](https://www.hackingwithswift.com/quick-start/concurrency/how-to-call-an-async-function-using-async-let)
+* [Swift Language Guide: Calling Asynchronous Functions in Parallel](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html)
+* [Hacking with Swift: How to call an async function using async let](https://www.hackingwithswift.com/quick-start/concurrency/how-to-call-an-async-function-using-async-let)
