@@ -46,3 +46,4 @@ Task {
 ## Resources 
 
 * [Apple Docs: Concurrency](https://developer.apple.com/documentation/swift/swift_standard_library/concurrency)
+* [Apple Docs: Dispatch (GCD)](https://developer.apple.com/documentation/dispatch)
