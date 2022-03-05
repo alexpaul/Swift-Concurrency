@@ -10,6 +10,24 @@
 
 > [attributes](https://developer.apple.com/documentation/dispatch/dispatchqueue/2300059-init): The attributes to associate with the queue. Include the concurrent attribute to create a dispatch queue that executes tasks concurrently. If you omit that attribute, the dispatch queue executes tasks serially.
 
+#### Serial Queue
+```swift
+// By default `DispatchQueue`s are created as serial queues
+let queue = DispatchQueue(label: "queue")
+
+queue.async {
+    print("First task being done.")
+}
+
+queue.async {
+    print("Seond task being done.")
+}
+
+/*
+ First task being done.
+ Seond task being done.
+*/
+```
 
 ## Resources
 
