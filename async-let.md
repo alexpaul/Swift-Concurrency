@@ -43,3 +43,8 @@ class ViewController: UIViewController {
     }
 }
 ```
+
+## Resources 
+
+* [Hacking with Swift: How to call an async function using async let
+](https://www.hackingwithswift.com/quick-start/concurrency/how-to-call-an-async-function-using-async-let)
