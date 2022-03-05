@@ -33,7 +33,7 @@ queue.async {
 
 ```swift
 // Here we are explicity creating a `concurrent` queue
-// Now the tasks will be performed in parallel
+// Now the tasks will be performed in parallel with no guarantee of order
 let queue = DispatchQueue(label: "queue1", attributes: .concurrent)
 
 queue.async {
