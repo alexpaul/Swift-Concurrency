@@ -51,7 +51,7 @@ enum Database {
 
     // Bridging a Closure API with newer async-await syntax
     static func save() async -> String {
-        return await withCheckedContinuation({ continuation in
+        await withCheckedContinuation({ continuation in
             save { string in
                 continuation.resume(returning: string)
             }
