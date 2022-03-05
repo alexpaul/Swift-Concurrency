@@ -20,14 +20,37 @@ queue.async {
 }
 
 queue.async {
-    print("Seond task being done.")
+    print("Second task being done.")
 }
 
 /*
  First task being done.
- Seond task being done.
+ Second task being done.
 */
 ```
+
+#### Concurrent Queue
+
+```swift
+// Here we are explicity creating a `concurrent` queue
+// Now the tasks will be performed in parallel
+let queue = DispatchQueue(label: "queue1", attributes: .concurrent)
+
+queue.async {
+    print("First task being done.")
+}
+
+queue.async {
+    print("Second task being done.")
+}
+
+/*
+ Second task being done.
+ First task being done.
+*/
+```
+
+***
 
 ## Resources
 
