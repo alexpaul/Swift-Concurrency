@@ -43,16 +43,17 @@ class ViewController: UIViewController {
 import UIKit
 
 enum Database {
-    static private func save(completion: @escaping (String) -> Void) {
+    static func save(completion: @escaping (String) -> Void) {
         DispatchQueue.global().async {
             completion("Saving.....")
         }
     }
 
+    // Bridging a Closure API with newer async-await syntax
     static func save() async -> String {
         return await withCheckedContinuation({ continuation in
-            Database.save { message in
-                continuation.resume(returning: message)
+            save { string in
+                continuation.resume(returning: string)
             }
         })
     }
