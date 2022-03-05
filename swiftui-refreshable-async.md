@@ -62,3 +62,7 @@ struct ContentView: View {
     }
 }
 ```
+
+# Resources 
+
+* [Apple docs: `refreshable(action:)`](https://developer.apple.com/documentation/SwiftUI/View/refreshable(action:))
