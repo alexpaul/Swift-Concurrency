@@ -1,5 +1,7 @@
 # Using `async let`
 
+`async let` allows for asychronous code to run in parallel.
+
 ```swift 
 import UIKit
 
