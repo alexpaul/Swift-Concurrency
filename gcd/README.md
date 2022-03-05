@@ -50,6 +50,23 @@ queue.async {
 */
 ```
 
+#### Background Queue
+
+```swift
+DispatchQueue.global(qos: .background).async {
+    completion("Data Recieved.")
+}
+```
+
+#### Main Queue
+
+```swift
+DispatchQueue.main.async {
+    self?.messageLabel.text = message
+    print(message) // Data Recieved.
+}
+```
+
 ***
 
 ## Resources
