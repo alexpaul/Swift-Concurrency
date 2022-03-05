@@ -66,3 +66,5 @@ struct ContentView: View {
 # Resources 
 
 * [Apple docs: `refreshable(action:)`](https://developer.apple.com/documentation/SwiftUI/View/refreshable(action:))
+* [Video: Paul Hudson (What's new in Swift 5.5)](https://www.youtube.com/watch?v=6C0SFPEy_0Y)
+
