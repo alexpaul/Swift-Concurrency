@@ -136,6 +136,67 @@ Task {
 }
 ```
 
+***
+
+## Example 3
+
+```swift
+import UIKit
+
+actor Account {
+    private var balance = 0
+
+    init(balance: Int) {
+        self.balance = balance
+    }
+
+    func withdraw(_ amount: Int) {
+        guard balance >= amount else { return }
+
+        balance -= amount
+    }
+
+    func deposit(_ amount: Int) {
+        balance += amount
+    }
+
+    func printBalance() {
+        print(balance)
+    }
+
+    func tranfer(_ amount: Int, to account: Account) async  {
+        guard balance >= amount else { return }
+
+        balance -= amount
+
+        // Actor-isolated instance method 'deposit' can not be referenced on a non-isolated actor instance
+        // account.deposit(amount)
+
+        // Since we are now working with a different `actor` instance `account`
+        // Swift forces us to work asynchronously so we don't cause a race condition
+        await account.deposit(amount)
+    }
+}
+
+class ViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let account = Account(balance: 200)
+
+        Task {
+            await account.printBalance() // 200
+            await account.deposit(20)
+            await account.printBalance() // 220
+            await account.withdraw(80)
+            await account.printBalance() // 140
+        }
+    }
+}
+```
+
+***
+
 ## Resources 
 
 * [Swift Language Guide: Concurrency](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html)
