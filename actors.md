@@ -203,3 +203,4 @@ class ViewController: UIViewController {
 * [Video: Azam Sharp (Understanding Actors in Swift)](https://www.youtube.com/watch?v=I8y1fg1P-nI)
 * [Hacking with Swift: What is an actor and why does Swift have them?
 ](https://www.hackingwithswift.com/quick-start/concurrency/what-is-an-actor-and-why-does-swift-have-them)
+* [Video: Paul Hudson (What's new in Swift 5.5)](https://www.youtube.com/watch?v=6C0SFPEy_0Y)
