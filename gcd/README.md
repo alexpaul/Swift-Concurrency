@@ -125,6 +125,13 @@ class ViewController: UIViewController {
         group.notify(queue: DispatchQueue.global()) {
             print("Resuming \"\(audioTitle)\"")
         }
+        
+        /*
+         Authenticated
+         Fetched Audio Books
+         Fetched Last Read Title
+         Resuming "Good to Great"
+        */
     }
 }
 ```
