@@ -138,6 +138,13 @@ class ViewController: UIViewController {
 
 ***
 
+## 4. Semaphores
+
+> [Semaphores](https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/KernelProgramming/synchronization/synchronization.html) and locks are similar, except that with semaphores, more than one thread can be doing a given operation at once. Semaphores are commonly used when protecting multiple indistinct resources. For example, you might use a semaphore to prevent a queue from overflowing its bounds.
+> OS X uses traditional counting semaphores rather than binary semaphores (which are essentially locks).
+
+
+
 ## Resources
 
 * [Apple Docs: Concurrency Programming Guide](https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html)
@@ -147,3 +154,4 @@ class ViewController: UIViewController {
 * [Apple Docs: Framework Programming Guide](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFrameworks/Frameworks.html#//apple_ref/doc/uid/10000183i)
 * [Apple Docs: Processes and Threads](https://developer.apple.com/documentation/foundation/processes_and_threads)
 * [Apple Docs: Thread Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/Introduction/Introduction.html#//apple_ref/doc/uid/10000057i-CH1-SW1)
+* [Apple Docs: Dispatch Barrier](https://developer.apple.com/documentation/dispatch/dispatch_barrier)
