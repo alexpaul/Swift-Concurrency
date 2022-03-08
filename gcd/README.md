@@ -146,3 +146,4 @@ class ViewController: UIViewController {
 * [Apple Docs: Concurrency Glossary](https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Glossary/Glossary.html#//apple_ref/doc/uid/TP40008091-CH104-SW2)
 * [Apple Docs: Framework Programming Guide](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFrameworks/Frameworks.html#//apple_ref/doc/uid/10000183i)
 * [Apple Docs: Processes and Threads](https://developer.apple.com/documentation/foundation/processes_and_threads)
+* [Apple Docs: Thread Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/Introduction/Introduction.html#//apple_ref/doc/uid/10000057i-CH1-SW1)
