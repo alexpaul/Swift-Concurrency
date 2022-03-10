@@ -138,7 +138,46 @@ class ViewController: UIViewController {
 
 ***
 
-## 4. Semaphores
+## 4. Using Concurrent Queues along with the `.barrier` Flag
+
+```swift
+ 
+// Recall by default `DispatchQueue`'s are serial queues
+// Here we create a Concurrent queue by using the `attributes` property
+let queue = DispatchQueue(label: "queue demo", attributes: .concurrent)
+
+// without the `.barrier` flag run serially
+queue.async {
+    sleep(1)
+    print("running task 1")
+}
+
+/*
+ Apple Docs: https://developer.apple.com/documentation/dispatch/dispatchworkitemflags/1780674-barrier
+ When submitted to a concurrent queue, a work item with this flag acts as a barrier.
+ Work items submitted prior to the barrier execute to completion, at which point the barrier work item executes.
+ Once the barrier work item finishes, the queue returns to scheduling work items that were submitted after the barrier.
+*/
+ 
+// with the `.barrier` flag this work item will be executed before release work back to its thread
+queue.async(flags: .barrier) {
+    sleep(1)
+    print("running task 2")
+}
+
+queue.async(flags: .barrier) {
+    sleep(1)
+    print("running task 3")
+}
+
+/*
+ running task 1
+ running task 2
+ running task 3
+*/
+```
+
+## 5. Semaphores
 
 > [Semaphores](https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/KernelProgramming/synchronization/synchronization.html) and locks are similar, except that with semaphores, more than one thread can be doing a given operation at once. Semaphores are commonly used when protecting multiple indistinct resources. For example, you might use a semaphore to prevent a queue from overflowing its bounds.
 > OS X uses traditional counting semaphores rather than binary semaphores (which are essentially locks).
