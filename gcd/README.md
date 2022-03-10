@@ -156,3 +156,5 @@ class ViewController: UIViewController {
 * [Apple Docs: Thread Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/Introduction/Introduction.html#//apple_ref/doc/uid/10000057i-CH1-SW1)
 * [Apple Docs: Dispatch Barrier](https://developer.apple.com/documentation/dispatch/dispatch_barrier)
 * [Apple Docs: Kernel Programming Guide](https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/KernelProgramming/About/About.html)
+* [Apple Docs: DispatchWorkItemFlags](https://developer.apple.com/documentation/dispatch/dispatchworkitemflags)
+  * [Apple Docs: `.barrier`](https://developer.apple.com/documentation/dispatch/dispatchworkitemflags/1780674-barrier)
